@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<!-- CSS only -->
+<link href="css/bootstrap.min.css" rel="stylesheet" >
+<!-- JavaScript Bundle with Popper -->
+<script src="js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<form action="#" th:action="@{/register_form}" method="post" th:object="${users}">  
+
+   <table align="center" style="margin-left: 30%;margin-top: 10%;">
+   
+    <tr>
+       
+        <td>
+        Full Name
+        </td>
+      <td>
+       <input type="text" name="fullname" class="form-control" th:field="*{fullname}"  placeholder="full name" aria-describedby="full name" required>
+      </td>
+    
+    </tr>
+    
+    <tr>
+     <td>
+        Email
+        </td>
+      <td>
+       <input type="email" name="email" class="form-control" placeholder="email" th:field="*{email}" aria-describedby="email" required>
+      
+       <span style="color: red" th:if="${emailExists == 1}">This email already exists</span>
+    
+    
+      </td>
+    </tr>
+    
+    <tr>
+    <td>
+        Password
+        </td>
+      <td>
+       <input type="password" name="password" class="form-control" placeholder="password" th:field="*{password}" aria-describedby="password" required>
+      </td>
+    </tr>
+    
+    <tr>
+    <td>
+     <button type="submit" class="btn-primary btn-lg">Register</button>
+    </td>
+    
+    <td  align="right">
+          <a href="/login">Login</a>     
+    </td>
+    
+    </tr>
+   
+   
+   </table> 
+
+
+</form>
+
+</body>
+</html>
