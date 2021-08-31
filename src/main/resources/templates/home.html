@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<!-- CSS only -->
+<link href="css/bootstrap.min.css" rel="stylesheet" >
+<!-- JavaScript Bundle with Popper -->
+<script src="js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+   <h1 align="center">Welcome <p th:text="${fullname}"></h1>
+
+    <br/>
+    <br/>
+    <br/>
+    
+ <form method="POST" action="#" th:action="@{/upload}"   enctype="multipart/form-data"  th:object="${photo}">  
+    
+    
+     <input type="hidden" name="fullname" class="form-control" th:field="*{name}">
+
+    <table>
+      <tr>
+      <td>
+         Category     
+      </td>      
+      <td>
+      
+          <select  class="form-select" th:field="*{category}">
+           <option value="living thing">living thing</option>
+           <option value="machine">machine</option>
+           <option value="nature">nature</option>
+          </select>
+      </td>      
+      </tr>
+       
+       <tr>
+         <td>
+            Description
+         </td>
+         <td>
+         
+         <textarea class="form-control" rows="5" cols="50" th:field="*{description}"></textarea>
+         </td>
+      
+      </tr>
+    
+     <tr>
+     
+     <td>
+     upload picture
+     </td>
+     <td>
+     
+     
+      <input  class="form-control-file" type="file" name="file" /><br/><br/>
+   
+    
+     </td>
+     </tr>
+     <h3 style="color: green;">  <p th:text="${message}"> </h3> 
+   
+    
+    
+    </table>
+    
+    
+    
+    <button type="submit" class="btn-primary btn-lg">Submit</button>
+</form>
+
+                        
+
+<div class="row" th:each="photos : ${userPhotos}">
+
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+ <img th:src="@{${'uploads/' + photos.name }}" class="img-thumbnail"/>
+    <div class="caption">
+      <h3><p th:text="${photos.category}"></h3>
+      <p th:text="${photos.description}">
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+                    </tr>
+                  
+                           
+
+
+
+
+
+
+</body>
+</html>

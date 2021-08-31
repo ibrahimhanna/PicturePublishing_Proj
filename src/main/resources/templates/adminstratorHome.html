@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<!-- CSS only -->
+<link href="css/bootstrap.min.css" rel="stylesheet" >
+<!-- JavaScript Bundle with Popper -->
+<script src="js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+
+<div class="row" th:each="photos : ${usersPhotos}">
+
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+ <img th:src="@{${'uploads/' + photos.name }}" class="img-thumbnail"/>
+    <div class="caption">
+      <h3><p th:text="${photos.category}"></h3>
+      <p th:text="${photos.description}">
+      <table>
+        <tr>
+        
+        <td>
+            <button type="submit" class="btn-primary btn-lg">Accept</button>
+            <button type="submit" class="btn-primary btn-lg">Reject</button>
+        </td>
+        
+        </tr>
+      
+      </table>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
